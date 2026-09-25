@@ -26,6 +26,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <FireworksOverlay />
       <Navbar />
       <main>
         <Routes>
