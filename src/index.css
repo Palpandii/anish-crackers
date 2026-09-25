@@ -806,6 +806,13 @@ p {
   color: var(--maroon);
 }
 
+.details-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
 .details-copy {
   color: var(--text-soft);
   font-size: 15px;

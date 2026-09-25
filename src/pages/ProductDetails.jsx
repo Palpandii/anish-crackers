@@ -3,6 +3,7 @@ import { Minus, Plus, ShoppingCart, Star, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { useProduct } from "../hooks/useProduct";
 import { useCart } from "../context/CartContext";
+import { getImageUrl } from "../services/api";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -24,6 +25,7 @@ export default function ProductDetails() {
 
   const original = product.oldPrice ?? product.price;
   const discount = original > product.price ? Math.round(((original - product.price) / original) * 100) : 0;
+  const photo = product.imageUrl ? getImageUrl(product.imageUrl) : product.image;
 
   const handleAdd = () => {
     addToCart(product, qty);
@@ -39,7 +41,7 @@ export default function ProductDetails() {
         </Link>
         <div className="details">
           <div className="details-visual">
-            <span>✦</span>
+            {photo ? <img src={photo} alt={product.name} /> : <span>✦</span>}
           </div>
           <div className="details-info">
             <p className="eyebrow">{product.category.replace("-", " ")}</p>

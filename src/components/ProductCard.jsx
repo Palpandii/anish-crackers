@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart, Star } from "lucide-react";
 import { useCart } from "../context/CartContext";
+import { getImageUrl } from "../services/api";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
   const original = product.oldPrice ?? product.price;
   const discount = original > product.price ? Math.round(((original - product.price) / original) * 100) : 0;
+  const photo = product.imageUrl ? getImageUrl(product.imageUrl) : product.image;
 
   return (
     <article className="product-card">
       <div className="product-visual">
         {product.badge && <span className="badge">{product.badge}</span>}
         {discount > 0 && <span className="discount">-{discount}%</span>}
-        {product.image ? (
-          <img src={product.image} alt={product.name} className="product-photo" />
+        {photo ? (
+          <img src={photo} alt={product.name} className="product-photo" />
         ) : (
           <span className="product-symbol">{"✦"}</span>
         )}
