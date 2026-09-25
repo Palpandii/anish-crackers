@@ -43,7 +43,6 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppButton />
-      <FireworksOverlay />
     </>
   );
 }
