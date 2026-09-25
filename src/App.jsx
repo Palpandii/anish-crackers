@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
+import FireworkOverlay from "./components/FireworkOverlay";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,6 +44,7 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <FireworkOverlay />
     </>
   );
 }
